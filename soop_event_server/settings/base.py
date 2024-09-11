@@ -11,6 +11,7 @@ USE_TZ = True
 WSGI_APPLICATION = "soop_event_server.wsgi.application"
 ROOT_URLCONF = "soop_event_server.urls"
 
+AUTH_USER_MODEL = "authorization.User"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 INSTALLED_APPS = [
@@ -23,7 +24,6 @@ INSTALLED_APPS = [
     # Project apps
     "authorization",
 ]
-
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -33,7 +33,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
-
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -49,7 +48,6 @@ TEMPLATES = [
         },
     },
 ]
-
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
