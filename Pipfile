@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 django = "<5.0.0"
 django-environ = "*"
+channels = {extras = ["daphne"], version = "*"}
 
 [dev-packages]
 

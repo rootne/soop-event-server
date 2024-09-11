@@ -9,12 +9,14 @@ USE_I18N = True
 USE_TZ = True
 
 WSGI_APPLICATION = "soop_event_server.wsgi.application"
+ASGI_APPLICATION = "soop_event_server.asgi.application"
 ROOT_URLCONF = "soop_event_server.urls"
 
 AUTH_USER_MODEL = "authorization.User"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 INSTALLED_APPS = [
+    "daphne",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
