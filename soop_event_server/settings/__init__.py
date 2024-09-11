@@ -1,10 +1,19 @@
+import environ
+from socket import gethostname, gethostbyname
+
 from .base import *
 
-SECRET_KEY = "django-insecure-$dl^qbfkt+=!#co%_app2!95(@!qnudp*4e*7)g@gbnt@1xxd="
+env = environ.Env(
+    DEBUG=(bool, True),
+    ALLOWED_HOSTS=(list, []),
+)
+environ.Env.read_env(BASE_DIR_PATH / ".env")
 
-DEBUG = True
+SECRET_KEY: str = env("SECRET_KEY")
 
-ALLOWED_HOSTS = []
+DEBUG: bool = env("DEBUG")
+
+ALLOWED_HOSTS: list[str] = [gethostbyname(gethostname())] + env("ALLOWED_HOSTS")
 
 DATABASES = {
     "default": {
@@ -13,4 +22,8 @@ DATABASES = {
     }
 }
 
+STATIC_ROOT = BASE_DIR_PATH / "static"
 STATIC_URL = "static/"
+
+MEDIA_ROOT = BASE_DIR_PATH / "media"
+MEDIA_URL = "media/"
