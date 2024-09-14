@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Project apps
     "authorization",
+    "event_manager",
 ]
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
