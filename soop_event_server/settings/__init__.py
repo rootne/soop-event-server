@@ -1,7 +1,7 @@
 import environ
 from socket import gethostname, gethostbyname
 
-from .base import *
+from .base import *  # noqa: F403
 
 env = environ.Env(
     DEBUG=(bool, True),
@@ -33,3 +33,6 @@ CHANNEL_LAYERS = {
         "BACKEND": "channels.layers.InMemoryChannelLayer",
     },
 }
+
+SOOP_CLIENT_ID: str = env("SOOP_CLIENT_ID")
+SOOP_CLIENT_SECRET: str = env("SOOP_CLIENT_SECRET")
